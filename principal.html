@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Principal - SAE</title>
+    <link rel="stylesheet" href="css/principal.css">
+    <script src="js/principal.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <button class="menu-toggle">☰</button>
+            <img src="img/Logo-UTP.jpg" alt="Logo" class="logo-utp">
+
+            <div class="header-icons">
+                <button class="icon-btn" title="Notificaciones">🔔</button>
+                <button class="icon-btn" title="Premios">🏆</button>
+                <div class="user-info">
+                    <div class="avatar">A</div>
+                    <span>Beckham Juande</span>
+                </div>
+                <button class="icon-btn" onclick="logout()" title="Cerrar sesión">🚪</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <nav>
+                <div class="nav-item active" onclick="showSection('inicio')">Inicio</div>
+                <div class="nav-item" onclick="showSection('consultas')">Consultas</div>
+                <div class="nav-item" onclick="showSection('seguimiento')">Seguimiento</div>
+                <div class="nav-item" onclick="showSection('historial')">Historial</div>
+                <div class="nav-item" onclick="showSection('premios')">Premios</div>
+                <div class="nav-item" onclick="showSection('manual')">Manual</div>
+            </nav>
+        </aside>
+
+        <!-- Content Area -->
+        <div class="content-area">
+            <!-- Main Content -->
+            <main class="main-content fade-in">
+                <!-- Default Content -->
+                <div id="default-content">
+                    <div class="welcome-message">
+                        <h1 class="welcome-title">¿Qué tienes para hoy?</h1>
+                        <p class="welcome-subtitle">Selecciona una opción para comenzar</p>
+                    </div>
+
+                    <div class="content-grid">
+                        <div class="content-card" onclick="openResponder()">
+                            <h3>Responder</h3>
+                            <p>¿Estás listo para asumir el reto?</p>
+                        </div>
+                        
+                        <div class="content-card" onclick="openConsultar()">
+                            <h3>Consultar</h3>
+                            <p>¿Tienes alguna duda sobre alguno de estos temas?</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chat Interface -->
+                <div id="chat-interface" class="chat-interface">
+                    <div class="chat-header">
+                        <div class="chat-title">💬 Consultas SAE</div>
+                        <button class="chat-close" onclick="closeChat()">×</button>
+                    </div>
+                    <div class="chat-messages" id="chat-messages">
+                        <div class="message bot">
+                            <div>¡Hola! Soy tu asistente virtual de SAE. ¿En qué puedo ayudarte hoy?</div>
+                            <div class="message-time" id="bot-time"></div>
+                        </div>
+                    </div>
+                    <div class="typing-indicator" id="typing-indicator">
+                        <div class="typing-dots">
+                            <div class="typing-dot"></div>
+                            <div class="typing-dot"></div>
+                            <div class="typing-dot"></div>
+                        </div>
+                    </div>
+                    <div class="chat-input-container">
+                        <div class="chat-input-wrapper">
+                            <input type="text" class="chat-input" id="chat-input" placeholder="Escribe tu pregunta aquí..." maxlength="500">
+                            <button class="chat-send" id="chat-send" onclick="sendMessage()">📤</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Responder Interface -->
+                <div id="responder-content" class="consultar-interface">
+                    <button class="back-button" onclick="backToDefault()">← Volver</button>
+                    
+                    <div class="utp-logo">
+                        <div class="utp-logo-container">
+                            <div class="logo-letter logo-u">U</div>
+                            <div class="logo-letter logo-t">T</div>
+                            <div class="logo-letter logo-p">P</div>
+                        </div>
+                    </div>
+
+                    <div class="help-text">TU AYUDA ES VALIOSA</div>
+                    <div class="select-text">SELECCIONAR</div>
+
+                    <div class="range-selector">
+                        <div class="range-option range-green" onclick="selectRange('0-10')">
+                            0 - 10
+                        </div>
+                        
+                        <div class="range-option range-pink" onclick="selectRange('10-20')">
+                            10-20
+                        </div>
+                        
+                        <div class="range-option range-blue" onclick="selectRange('20-30')">
+                            20 - 30
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Consultar Interface -->
+                <div id="consultar-content" class="consultar-interface">
+                    <button class="back-button" onclick="backToDefault()">← Volver</button>
+                    
+                    <div class="utp-logo">
+                        <div class="utp-logo-container">
+                            <div class="logo-letter logo-u">U</div>
+                            <div class="logo-letter logo-t">T</div>
+                            <div class="logo-letter logo-p">P</div>
+                        </div>
+                    </div>
+
+                    <div class="select-module-text">SELECCIONAR UN MÓDULO</div>
+
+                    <div class="module-selector">
+                        <div class="module-row">
+                            <div class="module-option" onclick="selectModule('becas')">
+                                BECAS
+                            </div>
+                            <div class="module-option" onclick="selectModule('certificados')">
+                                CERTIFICADOS
+                            </div>
+                        </div>
+                        
+                        <div class="module-row">
+                            <div class="module-option" onclick="selectModule('notas')">
+                                NOTAS
+                            </div>
+                            <div class="module-option" onclick="selectModule('matricula')">
+                                MATRICULA
+                            </div>
+                        </div>
+                        
+                        <div class="module-row">
+                            <div class="module-option" onclick="selectModule('servicios')">
+                                SERVICIOS UNIVERSITARIOS
+                            </div>
+                            <div class="module-option" onclick="selectModule('influencia')">
+                                INFLUENCIA UTP
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <!-- Right Panel -->
+            <aside class="right-panel">
+                <h3 class="panel-title">Menciones</h3>
+                <ul class="menu-list">
+                    <li onclick="showOption('cesar')">
+                <b>Cesar Armando</b><br>
+                @BeckhamJuande Gracias por responder mi consulta Beckham
+                </li>
+
+                <li onclick="showOption('Rene')">
+                <b>Rene</b><br>
+                @BeckhamJuande Tu explicación me ayudó bastante, ¡gracias!
+                </li>
+
+                <li onclick="showOption('Ivan')">
+                <b>Ivan</b><br>
+                @BeckhamJuande Agradezco tu apoyo con el problema del código.
+                </li>
+
+                <li onclick="showOption('gabriel')">
+                <b>Gabriel</b><br>
+                @BeckhamJuande Tu orientación fue clave para resolver mi duda.
+                </li>
+
+                <li onclick="showOption('jhair')">
+                <b>Jhair</b><br>
+                @BeckhamJuande Gracias por compartir el documento tan rápido.
+                </li>
+
+                <li onclick="showOption('nicolas')">
+                <b>Nicolas</b><br>
+                @BeckhamJuande Gracias por los tips en la sesión de ayer.
+                </li>
+                </ul>
+            </aside>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .tagline-top {
+      font-size: 28px;
+      font-weight: 700;
+      color: #b00020;
+      text-align: center;
+      margin-bottom: 30px;
+      letter-spacing: 1px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 960px;
+      background: #fff;
+      display: flex;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .container:hover {
+      transform: scale(1.01);
+    }
+
+    .left {
+      flex: 1;
+      background-color: #b00020;
+      padding: 60px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+    }
+
+    .left img {
+      width: 180px;
+      margin-bottom: 30px;
+    }
+
+    .left .tagline {
+      font-size: 20px;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    .right {
+      flex: 1;
+      padding: 60px 50px;
+      background-color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .form-title {
+      font-size: 28px;
+      font-weight: 700;
+      color: #b00020;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .form-subtitle {
+      font-size: 16px;
+      color: #555;
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: #222;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1.5px solid #ccc;
+      font-size: 16px;
+      transition: border-color 0.2s;
+      background-color: #f9f9f9;
+    }
+
+    .form-input:focus {
+      border-color: #b00020;
+      outline: none;
+      background-color: #fff;
+    }
+
+    .form-select {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1.5px solid #ccc;
+      font-size: 16px;
+      background-color: #f9f9f9;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+
+    .form-select:focus {
+      border-color: #b00020;
+      outline: none;
+      background-color: #fff;
+    }
+
+    .btn-container {
+      display: flex;
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    .cancel-btn {
+      flex: 1;
+      padding: 14px;
+      background: #6c757d;
+      border: none;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .cancel-btn:hover {
+      background: #5a6268;
+    }
+
+    .register-btn {
+      flex: 1;
+      padding: 14px;
+      background: #b00020;
+      border: none;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .register-btn:hover {
+      background: #8d001b;
+    }
+
+    .form-footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .form-footer a {
+      color: #b00020;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .form-footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 900px) {
+      .container {
+        flex-direction: column;
+        border-radius: 16px;
+      }
+
+      .left,
+      .right {
+        padding: 40px;
+      }
+
+      .left img {
+        width: 140px;
+      }
+
+      .btn-container {
+        flex-direction: column;
+      }
+    }
